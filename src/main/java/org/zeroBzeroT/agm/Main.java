@@ -21,9 +21,7 @@ import java.util.UUID;
     7/1/2019
     this is the first thing i've done with packets in a plugin so pls don't make fun of me
  */
-
 public class Main extends JavaPlugin implements Listener {
-
     public final HashMap<UUID, Integer> movedInsideVehicle = new HashMap<>();
     public final HashMap<UUID, Integer> violationCounter = new HashMap<>();
 
@@ -63,7 +61,9 @@ public class Main extends JavaPlugin implements Listener {
 
             movedInsideVehicle.put(uuid, 1);
 
-            if (violationCounter.get(uuid) > 3) {
+            if (!violationCounter.containsKey(uuid)) {
+                violationCounter.put(uuid, 0);
+            } else if (violationCounter.get(uuid) > 3) {
                 Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "" + player.getName() + " tried getting into god mode");
                 player.leaveVehicle();
                 event.getPlayer().kickPlayer("Invalid data.");
