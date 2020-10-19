@@ -66,9 +66,12 @@ public class Main extends JavaPlugin implements Listener {
             if (violationCounter.get(uuid) > 3) {
                 Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "" + player.getName() + " tried getting into god mode");
                 player.leaveVehicle();
+                event.getPlayer().kickPlayer("Invalid data.");
 
-                movedInsideVehicle.put(uuid, 0);
-                violationCounter.put(uuid, 0);
+                removePlayer(player);
+
+                movedInsideVehicle.remove(uuid);
+                violationCounter.remove(uuid);
             }
         }
     }
