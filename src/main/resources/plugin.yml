@@ -1,0 +1,4 @@
+name: AntiGodMode
+version: ${project.version}
+authors: [ John200410, bierdosenhalter ]
+main: org.zeroBzeroT.agm.Main
