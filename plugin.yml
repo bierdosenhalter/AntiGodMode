@@ -1,5 +1,4 @@
 name: AntiGodMode
-version: 1.0
-author: John200410
-
-main: black.nigger.agm.Main
+version: ${project.version}
+authors: [ John200410, bierdosenhalter ]
+main: org.zeroBzeroT.agm.Main
